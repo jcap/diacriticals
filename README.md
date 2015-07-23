@@ -1,1 +1,5 @@
 # diacriticals
+
+```bash
+% make install
+```
