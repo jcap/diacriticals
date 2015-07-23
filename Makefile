@@ -1,10 +1,11 @@
 
 DATE=$(shell date +%Y%m%d%H%M%S)
+BDIR=backups-${DATE}
 
 backup:
-	mkdir -p .dotbackups-${DATE}
-	cp -r ${HOME}/.vim* .dotbackups-${DATE}/
-	cp ${HOME}/.tmux.conf .dotbackups-${DATE}/
+	mkdir -p ${BDIR}
+	cp -r ${HOME}/.vim* ${BDIR}/
+	cp ${HOME}/.tmux.conf ${BDIR}/
 
 install: backup
 	cp tmux.conf ${HOME}/.tmux.conf
