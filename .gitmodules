@@ -22,3 +22,6 @@
 [submodule "vim/bundle/vim-colors-solarized"]
 	path = vim/bundle/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "vim/bundle/vim-vagrantfile"]
+	path = vim/bundle/vim-vagrantfile
+	url = git@github.com:robbevan/Vagrantfile.vim.git
