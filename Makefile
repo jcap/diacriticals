@@ -4,12 +4,13 @@ BDIR=backups-${DATE}
 
 backup:
 	mkdir -p ${BDIR}
-	cp -r ${HOME}/.vim* ${BDIR}/
-	cp ${HOME}/.tmux.conf ${BDIR}/
+	cp -R ${HOME}/.vim* ${BDIR}/ 
+	touch ${HOME}/.tmux.conf
+	cp ${HOME}/.tmux.conf ${BDIR}/ 
 
 install: backup
 	cp tmux.conf ${HOME}/.tmux.conf
 	cp vimrc ${HOME}/.vimrc
 	mkdir -p ${HOME}/.vim
-	cp -r vim/* ${HOME}/.vim/
+	cp -R vim/* ${HOME}/.vim/
 
