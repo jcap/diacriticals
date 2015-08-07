@@ -40,7 +40,7 @@ set shortmess=at          " shortens messages to avoid 'press a key' prompt
 set tabstop=2
 set timeout               " allow keys to timeout
 set title                 " change the terminal's title
-set textwidth=79          " set normal border; can unset for coding
+set textwidth=80          " set normal border; can unset for coding
 set wildignore+=*/CVS/
 set wildmenu              " enable menu of completions
 set wildmode=longest:full,full " complete only as much as is common,
