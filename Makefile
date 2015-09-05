@@ -1,12 +1,12 @@
 
 DATE=$(shell date +%Y%m%d%H%M%S)
 BDIR=backups-${DATE}
-HOST=$(shell hostname -s)
+HOST=$(shell ./gen_hostid)
 
 ifeq ($(wildcard tmux.conf.${HOST}),)
-TMUXFILE="tmux.conf"
+TMUXFILE=$(shell echo "tmux.conf")
 else
-TMUXFILE="tmux.conf.${HOST}"
+TMUXFILE=$(shell echo "tmux.conf tmux.conf.${HOST}")
 endif
 
 backup:
@@ -17,7 +17,7 @@ backup:
 	cp ${HOME}/.gitconfig ${BDIR}/ 
 
 install: backup
-	cp ${TMUXFILE} ${HOME}/.tmux.conf
+	cat ${TMUXFILE} > ${HOME}/.tmux.conf
 	cp vimrc ${HOME}/.vimrc
 	rm -rf ${HOME}/.vim
 	mkdir -p ${HOME}/.vim

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+
+
+MAC=$(networksetup -getmacaddress en0 2> /dev/null | awk '{print $3}' | md5 2> /dev/null)
+if [ ${MAC} ]; then
+  echo ${MAC}
+else
+  ifconfig eth0 |grep HWaddr |awk '{print $5}' | md5sum 2> /dev/null |awk '{print $1}'
+fi
