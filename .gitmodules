@@ -25,3 +25,6 @@
 [submodule "vim/bundle/vim-vagrantfile"]
 	path = vim/bundle/vim-vagrantfile
 	url = git@github.com:robbevan/Vagrantfile.vim.git
+[submodule "vim/bundle/Dockerfile"]
+	path = vim/bundle/Dockerfile
+	url = https://github.com/ekalinin/Dockerfile.vim.git
