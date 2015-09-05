@@ -1,0 +1,14 @@
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[push]
+	default = simple
+[alias]
+	root = rev-parse --show-toplevel
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[core]
+	preloadindex = true
