@@ -9,6 +9,8 @@ else
 TMUXFILE=$(shell echo "tmux.conf tmux.conf.${HOST}")
 endif
 
+all: backup install-vim install-tmux install-git
+
 backup:
 	mkdir -p ${BDIR}
 	cp -r ${HOME}/.vim* ${BDIR}/ 
@@ -16,11 +18,15 @@ backup:
 	cp ${HOME}/.tmux.conf ${BDIR}/ 
 	cp ${HOME}/.gitconfig ${BDIR}/ 
 
-install: backup
-	cat ${TMUXFILE} > ${HOME}/.tmux.conf
+install-vim:
 	cp vimrc ${HOME}/.vimrc
 	rm -rf ${HOME}/.vim
 	mkdir -p ${HOME}/.vim
 	cp -r vim/* ${HOME}/.vim/
+
+install-tmux:
+	cat ${TMUXFILE} > ${HOME}/.tmux.conf
+
+install-git:
 	cp gitconfig ${HOME}/.gitconfig
 
