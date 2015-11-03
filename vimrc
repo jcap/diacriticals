@@ -104,7 +104,7 @@ if !exists('g:airline_symbols')
   let g:airline_theme="murmur"
 endif
 
-let &colorcolumn=join(range(81,999),",")
+let &colorcolumn=join(range(121,999),",")
 
 au BufNewFile,BufRead Gantryfile set filetype=make
 
