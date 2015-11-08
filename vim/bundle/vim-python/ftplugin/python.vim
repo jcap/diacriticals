@@ -6,7 +6,7 @@ setlocal expandtab
 setlocal textwidth=80
 setlocal formatoptions=cq
 setlocal wrapmargin=0
-let &colorcolumn=join(range(81,999),",")
+let &colorcolumn=join(range(121,999),",")
 let python_highlight_py2=1
 let python_highlight_common=1
 let python_highlight_indent_errors=1
