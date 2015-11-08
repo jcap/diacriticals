@@ -62,10 +62,12 @@ set listchars=tab:>-,trail:-
 set list
 
 " change the mapleader from \ to ,
-"let mapleader=","
+let mapleader=","
 
-let mapleader="\<Space>"
+"let mapleader="\<Space>"
 nmap <leader>u :silent GundoToggle<CR>
+
+map <C-n> :NERDTreeToggle<CR>
 
 ""  set various script options
 "let perl_fold=1                        " allow perl folding
