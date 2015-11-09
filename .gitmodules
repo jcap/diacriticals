@@ -37,3 +37,6 @@
 [submodule "vim/bundle/vim-minimap"]
 	path = vim/bundle/vim-minimap
 	url = https://github.com/severin-lemaignan/vim-minimap.git
+[submodule "vim/bundle/nerdtree"]
+	path = vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
