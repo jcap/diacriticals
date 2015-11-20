@@ -1,133 +1,9 @@
-#set-option -g prefix C-q
-set-option -g prefix C-a
-bind-key a  send-prefix
-
-# use ^Q rather than ^B for the prefix key
-#set  -g prefix        ^Q
-unbind -n ^B
-
-bind-key C-q last-window
-
-# bells in any window get sent to the terminal
-set  -g bell-action   any
-set  -s escape-time 0
-setw -g aggressive-resize on
-
-# lots of scrollback
-set  -g history-limit 10000
-
-# logs of colors
-set -g default-terminal "xterm-256color"
-
-setw -g automatic-rename off
-
-bind w command-prompt -p "watch for" "setw monitor-content '%%'"
-bind m setw monitor-activity
-bind M command-prompt -p "silence (seconds)" "setw monitor-silence %%"
-
-set -g visual-activity on
-#set -g visual-content  on
-set -g visual-silence  on
-
-
-# use vi keybindings
-set  -g status-keys   vi
-
-# Set vi mode
-# http://blog.sanctum.geek.nz/vi-mode-in-tmux/
-set-window-option -g mode-keys vi
- 
-# Ref: http://jasonwryan.com/blog/2012/06/07/copy-and-paste-in-tmux/
-# Make it more like vim to copy / paste text into the buffer, using
-# Ctrl-A [ to enter copy mode, then: v (select), move cursor, y (yank)
-# Ctrl-A ] to paste
-bind-key -t vi-copy 'v' begin-selection
-bind-key -t vi-copy 'y' copy-selection
-
-# keybindings
-#bind  A  command-prompt "rename-window %%" # not used; C-a<Comma> is better
-bind ^A  last-window
-bind '"' choose-window
-bind ^C  new-window
-bind ^D  detach-client
-bind ^K  clear-history
-bind "'" command-prompt "find-window '%%'"
-
-bind ,   command-prompt "rename-window '%%'"
-#bind R   movew -r
-bind /   choose-buffer
-
-bind r source-file ~/.tmux.conf \; display "Reloaded!"
-
-unbind %
-bind   |  split-window -h -c '#{pane_current_path}'
-bind   -  split-window -v -c '#{pane_current_path}'
-
-#bind  +  choose-tree
-
-bind  *  set synchronize-panes
-
-bind -r n next-window
-bind    N next-window -a
-
-bind -t vi-copy v begin-selection
-bind -t vi-copy y copy-selection
-
-bind -t vi-copy C-b page-up
-bind -t vi-copy C-f page-down
-
-bind -r h select-pane -L
-bind -r j select-pane -D
-bind -r k select-pane -U
-bind -r l select-pane -R
-
-bind -r H resize-pane -L 5
-bind -r J resize-pane -D 5
-bind -r K resize-pane -U 5
-bind -r L resize-pane -R 5
-
-bind P pipe-pane -o "cat >>~/log/tmux/#W.log" \; display "Toggled logging to ~/log/tmux/#W.log"
-
-set -g status on
+#bind-key a  send-prefix
 
 set -g default-command "reattach-to-user-namespace -l /usr/local/bin/zsh"
 
-
-# start window indexing at one instead of zero
-set -g base-index 1
-set -g pane-base-index 1
-
-#set -g status-position top
-#set -g status-bg   colour239.
-#set -g status-fg   colour231
-
-#set -g message-bg  colour19
-#set -g message-fg  colour231
-
-set -g status-utf8 on
-#set -g status-left \
-#  " #[fg=colour80]«#[fg=colour231]#S#[fg=colour80]»#[fg=colour231]"
-#set -g status-right "#(whoami)@#h "
-
-
-
 # Status bar
-set -g status-bg black
-set -g status-fg grey
-set -g window-status-current-bg darkgrey
-set -g window-status-current-fg white
-set -g window-status-current-attr bold
-#set -g status-attr bright
-#set -g status-left \
-#  " #[fg=colour80]«#[fg=colour231]#S#[fg=colour80]»#[fg=colour231] "
-
-# Stuff we stick in the status bar
-set -g status-interval 0
-#set -g  status-left "#[fg=yellow]#{session_name}#[default]"
-#set -ag status-left " | #[fg=yellow]#(whoami)@#h #[default]"
-
 set -g status-left-length 0
-#set -g status-left-length 30
 set -g status-right "#[fg=blue]#(mem_usage.sh)#[default]"
 set -ag status-right " | #[fg=red]#(tx_usage.sh)#[default]"
 set -ag status-right " #[fg=blue]#(rx_usage.sh)#[default]"
@@ -138,26 +14,8 @@ set -g window-status-format '#I:#W'
 #### COLOUR (Solarized dark)
 
 # default statusbar colors
-#set-option -g status-bg default
 set-option -g status-left-bg default
 set-option -g status-right-bg default
-#set-option -g status-fg yellow
-set-option -g status-attr default
-
-# default window title colors
-#set-window-option -g window-status-fg brightblue #base1
-#set-window-option -g window-status-bg default
-
-# enable wm window titles
-set -g set-titles on
-
-# wm window title string (uses statusbar variables)
-set -g set-titles-string "#T (#S: #W)"
-
-# center align the window list
-#set -g status-justify centre
-
-#### COLOUR (Solarized dark)
 
 # default statusbar colors
 set-option -g status-bg black #base02
@@ -172,7 +30,7 @@ set-window-option -g window-status-attr dim
 # active window title colors
 set-window-option -g window-status-current-fg brightred #orange
 set-window-option -g window-status-current-bg black # default
-#set-window-option -g window-status-current-attr bright
+set-window-option -g window-status-current-attr bold
 
 # pane border
 set-option -g pane-border-fg black #base02
@@ -185,3 +43,6 @@ set-option -g message-fg brightred #orange
 # pane number display
 set-option -g display-panes-active-colour blue #blue
 set-option -g display-panes-colour brightred #orange
+
+set -g status-interval 0
+set -g status-justify left
