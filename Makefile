@@ -9,7 +9,7 @@ else
 TMUXFILE=$(shell echo "tmux.conf tmux.conf.${HOST}")
 endif
 
-all: backup install-vim install-tmux install-git
+all: backup install-vim install-tmux install-git install-zsh
 
 backup:
 	mkdir -p ${BDIR}
@@ -30,3 +30,6 @@ install-tmux:
 install-git:
 	cp gitconfig ${HOME}/.gitconfig
 
+install-zsh:
+	mkdir -p ${HOME}/.oh-my-zsh/themes
+	cp jcap.zsh-theme ${HOME}/.oh-my-zsh/themes/jcap.zsh-theme
