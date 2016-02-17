@@ -5,7 +5,8 @@
 [push]
 	default = simple
 [alias]
-	root = rev-parse --show-toplevel
+	fap = fetch --all -p
+	hist = log --all --graph --color=always --pretty='[%C(cyan)%h%Creset]%C(bold cyan)%d%Creset %s'
 [diff]
 	tool = vimdiff
 [difftool]

@@ -28,7 +28,7 @@ install-tmux:
 	cat ${TMUXFILE} > ${HOME}/.tmux.conf
 
 install-git:
-	cp gitconfig ${HOME}/.gitconfig
+	cat gitconfig gitconfig-local > ${HOME}/.gitconfig
 
 install-zsh:
 	mkdir -p ${HOME}/.oh-my-zsh/themes
