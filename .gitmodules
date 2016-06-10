@@ -43,3 +43,6 @@
 [submodule "vim/bundle/MatchTag"]
 	path = vim/bundle/MatchTag
 	url = git://github.com/gregsexton/MatchTag.git
+[submodule "vim/bundle/syntastic"]
+	path = vim/bundle/syntastic
+	url = git://github.com/scrooloose/syntastic.git
